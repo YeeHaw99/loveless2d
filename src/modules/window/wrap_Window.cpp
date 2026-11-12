@@ -78,6 +78,8 @@ static int readWindowSettings(lua_State *L, int idx, WindowSettings &settings)
 	settings.highdpi = luax_boolflag(L, idx, settingName(Window::SETTING_HIGHDPI), settings.highdpi);
 	settings.usedpiscale = luax_boolflag(L, idx, settingName(Window::SETTING_USE_DPISCALE), settings.usedpiscale);
 
+	settings.skiptaskbar = luax_boolflag(L, idx, settingName(Window::SETTING_SKIPTASKBAR), settings.skiptaskbar); // LOVELESS CHANGE: Window is not added to the taskbar.
+
 	lua_getfield(L, idx, settingName(Window::SETTING_VSYNC));
 	if (lua_isnumber(L, -1))
 		settings.vsync = (int) lua_tointeger(L, -1);
@@ -215,6 +217,9 @@ int w_getMode(lua_State *L)
 
 	lua_pushinteger(L, settings.y);
 	lua_setfield(L, -2, settingName(Window::SETTING_Y));
+
+	luax_pushboolean(L, settings.skiptaskbar);
+	lua_setfield(L, -2, settingName(Window::SETTING_SKIPTASKBAR)); // LOVELESS CHANGE: Window is not added to the taskbar.
 
 	return 3;
 }

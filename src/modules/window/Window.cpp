@@ -108,6 +108,7 @@ StringMap<Window::Setting, Window::SETTING_MAX_ENUM>::Entry Window::settingEntri
 	{"refreshrate", SETTING_REFRESHRATE},
 	{"x", SETTING_X},
 	{"y", SETTING_Y},
+	{"skiptaskbar", SETTING_SKIPTASKBAR}, // LOVELESS CHANGE: Window is not added to the taskbar.
 };
 
 StringMap<Window::Setting, Window::SETTING_MAX_ENUM> Window::settings(Window::settingEntries, sizeof(Window::settingEntries));

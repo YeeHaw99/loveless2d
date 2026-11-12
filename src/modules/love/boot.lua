@@ -148,6 +148,8 @@ function love.init()
 			centered = true,
 			highdpi = false,
 			usedpiscale = true,
+
+			skiptaskbar = false, -- LOVELESS CHANGE: Window is not added to the taskbar.
 		},
 		modules = {
 			data = true,
@@ -297,6 +299,8 @@ function love.init()
 			usedpiscale = c.window.usedpiscale,
 			x = c.window.x,
 			y = c.window.y,
+
+			skiptaskbar = c.window.skiptaskbar, -- LOVELESS CHANGE: Window is not added to the taskbar.
 		}), "Could not set window mode")
 		if c.window.icon then
 			assert(love.image, "If an icon is set in love.conf, love.image must be loaded!")
