@@ -528,7 +528,7 @@ bool Window::setWindow(int width, int height, WindowSettings *settings)
 	if (f.useposition || f.centered)
 		SDL_SetWindowPosition(window, x, y);
 
-	SDL_RaiseWindow(window);
+	//SDL_RaiseWindow(window); // LOVELESS CHANGE: DISABLE REQUESTING ATTENTION ON WINDOW BUILD
 
 	setVSync(f.vsync);
 

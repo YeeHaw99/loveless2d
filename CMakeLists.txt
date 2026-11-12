@@ -1799,9 +1799,10 @@ if(MSVC)
 endif()
 
 #
-# love (executable)
+# loveless (executable)
 #
 add_executable(${LOVE_EXE_NAME} WIN32 src/love.cpp ${LOVE_RC})
+set_target_properties(${LOVE_EXE_NAME} PROPERTIES OUTPUT_NAME "loveless") 
 target_link_libraries(${LOVE_EXE_NAME} ${LOVE_LIB_NAME})
 set_target_properties(${LOVE_EXE_NAME} PROPERTIES C_VISIBILITY_PRESET hidden CXX_VISIBILITY_PRESET hidden VISIBILITY_INLINES_HIDDEN ON)
 
