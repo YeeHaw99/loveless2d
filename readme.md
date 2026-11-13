@@ -4,8 +4,6 @@ LÖVEless is focused on making LÖVE2d better to work with for a variety of thin
 
 This is made with personal use in mind, however I am making it public for that one person out there who will appreciate it.
 
-Please star if you enjoy, it tells me you want to see more.
-
 LÖVEless Changes
 ----------
 Below are a list of all the changes present in LÖVEless, alongside planned changes. Sectioned into categories for viewing convenience. Note that something in one category can affect or have use case in another!
