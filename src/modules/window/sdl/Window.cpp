@@ -492,6 +492,9 @@ bool Window::setWindow(int width, int height, WindowSettings *settings)
 	if (f.highdpi)
 		sdlflags |= SDL_WINDOW_ALLOW_HIGHDPI;
 
+	if (f.skiptaskbar) // LOVELESS CHANGE: Window is not added to the taskbar.
+		sdlflags |= SDL_WINDOW_SKIP_TASKBAR;
+
 	int x = f.x;
 	int y = f.y;
 
@@ -528,7 +531,7 @@ bool Window::setWindow(int width, int height, WindowSettings *settings)
 	if (f.useposition || f.centered)
 		SDL_SetWindowPosition(window, x, y);
 
-	SDL_RaiseWindow(window);
+	//SDL_RaiseWindow(window); // LOVELESS CHANGE: PREVENT WINDOW RAISING AND TASKBAR ATTENTION FLASHING.
 
 	setVSync(f.vsync);
 
@@ -606,6 +609,8 @@ void Window::updateSettings(const WindowSettings &newsettings, bool updateGraphi
 	settings.resizable = (wflags & SDL_WINDOW_RESIZABLE) != 0;
 	settings.borderless = (wflags & SDL_WINDOW_BORDERLESS) != 0;
 	settings.centered = newsettings.centered;
+
+	settings.skiptaskbar = newsettings.skiptaskbar;  // LOVELESS CHANGE: Window is not added to the taskbar.
 
 	getPosition(settings.x, settings.y, settings.display);
 

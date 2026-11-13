@@ -71,7 +71,10 @@ public:
 		SETTING_REFRESHRATE,
 		SETTING_X,
 		SETTING_Y,
-		SETTING_MAX_ENUM
+
+		SETTING_SKIPTASKBAR, // LOVELESS CHANGE: Window is not added to the taskbar.
+		
+		SETTING_MAX_ENUM,
 	};
 
 	enum FullscreenType
@@ -269,6 +272,8 @@ struct WindowSettings
 	bool useposition = false;
 	int x = 0;
 	int y = 0;
+
+	bool skiptaskbar = false; // LOVELESS CHANGE: Window is not added to the taskbar.
 };
 
 } // window
